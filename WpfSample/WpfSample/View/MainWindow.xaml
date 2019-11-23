@@ -1,0 +1,39 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAample"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors" x:Class="WpfAample.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="260.376" Width="500">
+    <b:Interaction.Triggers>
+        <b:EventTrigger EventName="Loaded">
+            <b:InvokeCommandAction Command="{Binding LoadedCommand}"/>
+        </b:EventTrigger>
+    </b:Interaction.Triggers>
+    <Grid>
+        <Button x:Name="Button1" Content="Button1" Margin="10,10,0,0" IsEnabled="{Binding Button1IsEnabled}" HorizontalAlignment="Left" Width="100" Height="100" VerticalAlignment="Top">
+            <b:Interaction.Triggers>
+                <b:EventTrigger EventName="Click">
+                    <b:InvokeCommandAction Command="{Binding Button1ClickedCommand}"/>
+                </b:EventTrigger>
+            </b:Interaction.Triggers>
+        </Button>
+        <Button Content="Button2" Margin="10,115,0,0" IsEnabled="{Binding Button2IsEnabled}" Height="100" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100">
+            <b:Interaction.Triggers>
+                <b:EventTrigger EventName="Click">
+                    <b:InvokeCommandAction Command="{Binding Button2ClickedCommand}"/>
+                </b:EventTrigger>
+            </b:Interaction.Triggers>
+
+        </Button>
+        <DataGrid Margin="115,10,10,14" ItemsSource="{Binding DataGridSource}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding= "{Binding str}" Header="コメント"/>
+                <DataGridTextColumn Binding="{Binding time}"  Header="時刻"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
