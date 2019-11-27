@@ -1,0 +1,36 @@
+﻿<Page x:Class="Builder.View.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Builder.View"
+      xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+      
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Page1">
+    <b:Interaction.Triggers>
+        <b:EventTrigger EventName="Loaded">
+            <b:InvokeCommandAction/>
+        </b:EventTrigger>
+    </b:Interaction.Triggers>
+
+    <Grid>
+        <Label Content="TextBuilder " HorizontalAlignment="Left" VerticalAlignment="Top" Height="73" Width="227" FontSize="36"/>
+        <Button Content="次へ" Margin="0,0,10,10" RenderTransformOrigin="6.458,14.978" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom">
+            <b:Interaction.Triggers>
+                <b:EventTrigger EventName="Click">
+                    <b:InvokeCommandAction Command="{Binding Button2ClickedCommand}"/>
+                </b:EventTrigger>
+            </b:Interaction.Triggers>
+        </Button>
+        <TextBox x:Name="doc" Margin="38,103,90,10" TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding TextSource}"/>
+        <Button Content="プレーンテキスト" HorizontalAlignment="Left" Margin="38,78,0,0" VerticalAlignment="Top" Width="75" >
+            <b:Interaction.Triggers>
+                <b:EventTrigger EventName="Click">
+                    <b:InvokeCommandAction Command="{Binding Button1ClickedCommand}"/>
+                </b:EventTrigger>
+            </b:Interaction.Triggers>
+        </Button>
+    </Grid>
+</Page>
